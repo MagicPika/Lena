@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import modules.applications as applications
+from modules.applications import Applications
 import config
 
 intents = discord.Intents.default()
@@ -20,3 +20,4 @@ async def on_ready():
 
 
 bot.run(config.TOKEN)
+
