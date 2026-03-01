@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from modules import applications
+import modules.applications as applications
 import config
 
 intents = discord.Intents.default()
@@ -17,5 +17,6 @@ async def on_ready():
     print(f"Бот готов → {bot.user}")
     await bot.tree.sync()
     print("Слэш-команды синхронизированы")
+
 
 bot.run(config.TOKEN)
