@@ -17,10 +17,12 @@ async def on_ready():
 
 @bot.event
 async def on_message(message: discord.Message):
-    # Игнорируем сообщения бота
-    if message.author.bot and message.webhook_id is None:
-        return
-
+    print("Сообщение получено")
+    print("Channel:", message.channel.id)
+    print("Webhook:", message.webhook_id)
+    print("Embeds:", len(message.embeds))
+    
+    await bot.process_commands(message)
     # Если это не webhook — просто даём работать командам
     if message.webhook_id is None:
         await bot.process_commands(message)
@@ -73,3 +75,4 @@ async def ping(ctx):
     await ctx.send("Pong!")
 
 bot.run(TOKEN)
+
